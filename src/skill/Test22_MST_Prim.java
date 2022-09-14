@@ -8,13 +8,13 @@ import java.util.PriorityQueue;
 public class Test22_MST_Prim {
     static List<Edge> mst = new ArrayList<>();
     static List<Edge> edges = new ArrayList<>(); //전체 엣지리스트
-    List<Edge> currentEdgeList;//현재 엣지
+    static List<Edge> currentEdgeList;//현재 엣지
     static List<String> connectedNodes;//연결된 엣지리스트
     static List<Edge> candidateEdgeList;//간선리스트
     static HashMap<String,List<Edge>> adjacentEdges;//해당key노드에 대한 연결된 모든 간선(엣지)들
     static Edge poppedEdge;
-    List<Edge> adjacentEdgeNodes;
-    Edge adjacentEdgeNode;
+    static List<Edge> adjacentEdgeNodes;
+    static Edge adjacentEdgeNode;
     static PriorityQueue<Edge> priorityQueue = new PriorityQueue<>();
     static HashMap<String, List<Edge>> graph = new HashMap<>();
     Edge currentEdge;
@@ -31,6 +31,8 @@ public class Test22_MST_Prim {
         edges.add(new Edge(8,"E","F"));
         edges.add(new Edge(9,"E","G"));
         edges.add(new Edge(11,"F","G"));
+
+        System.out.println(primFunc("A",edges));
     }
     static class Edge implements Comparable<Edge> {
         public int weight;
@@ -55,7 +57,7 @@ public class Test22_MST_Prim {
     }
 
 
-    public List<Edge> primFunc(String startNode,List<Edge> edgs){
+    public static List<Edge> primFunc(String startNode,List<Edge> edgs){
         mst = new ArrayList<>();//최종결과
         connectedNodes = new ArrayList<String>();//연결된 노드들 리스트(중간결과)
         adjacentEdges=new HashMap<>();//인접 엣지 리스트
