@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Test20_Dijkstra {
     public static void main(String[] args) {
-        HashMap<String, List<Edge>> graph = new HashMap<>();//string 이름 vertex의 인접 edge
+        HashMap<String, List<Edge>> graph = new HashMap<>();//string 이름 , node의 인접 edge
         graph.put("A",new ArrayList<Edge>(Arrays.asList(new Edge(8,"B"),new Edge(1,"C"),new Edge(2,"D"))));
         graph.put("B",new ArrayList<Edge>());
         graph.put("C",new ArrayList<Edge>(Arrays.asList(new Edge(5,"B"),new Edge(2,"D"))));
@@ -61,7 +61,7 @@ public class Test20_Dijkstra {
             while(pq.size()>0){//탐색할 노드가 있을동안 돌아라
                 curEdge = pq.poll();//탐색할 edge
                 curDistance = curEdge.distance;//탐색할노드의 distance
-                curVertex = curEdge.vertex;//탐색할노드의 vertex(탐색할 노드와 연결된 노드)
+                curVertex = curEdge.vertex;//탐색할노드=vertexs
 
                 if(distances.get(curVertex)<curDistance){//비교하려는엣지의 distance가 이미 더 길어서 계산할필요가 없을경우
                     continue;
